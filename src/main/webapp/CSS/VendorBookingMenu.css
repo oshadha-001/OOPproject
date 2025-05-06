@@ -34,6 +34,7 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
+    padding-bottom: 10px;
 }
 
 .vendor-card:hover {
@@ -48,6 +49,7 @@ h1 {
 
 .vendor-card .info {
     padding: 15px;
+    position: relative;
 }
 
 .vendor-card h3 {
@@ -62,16 +64,34 @@ h1 {
 }
 
 .vendor-card button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #d16ba5;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 0.85rem;
+    display: inline-block;
 }
 
 .vendor-card button:hover {
     background-color: #c25092;
+}
+
+.extra-details {
+    display: none;
+    margin-top: 15px;
+}
+
+.vendor-card.expanded .extra-details {
+    display: block;
+}
+
+.book-btn {
+    margin: 10px auto 0;
+    display: block;
+    width: fit-content;
+    padding: 8px 18px;
 }
 
 footer {
