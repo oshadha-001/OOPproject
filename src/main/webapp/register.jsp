@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register Form in HTML and CSS</title>
-  <link rel="stylesheet" href="HTML/stylesheet_register.css">
+  <link rel="stylesheet" href="CSS/stylesheet_register.css">
 </head>
 <body>
 
@@ -38,11 +38,11 @@
     <button type="submit" class="btn">Register</button>
 
     <div class="login-link">
-      <p>Already have an account? <a href="login.html">Login</a></p>
+      <p>Already have an account? <a href="index.jsp">Login</a></p>
     </div>
   </form>
 </div>
 
-<script src="script.js"></script>
+<script src="JSP/script.js"></script>
 </body>
 </html>

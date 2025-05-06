@@ -1,19 +1,20 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="CSS/stylesheet.css" rel='stylesheet'>
 </head>
 <body>
 
-<!-- Background Video -->
 <video autoplay muted loop id="video-background">
-    <source src="backgroundvideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    <source src=resources/videos/backgroundvideo.mp4>
 </video>
+
+
+
 
 <!-- Login Form -->
 <div class="wrapper">
@@ -33,13 +34,13 @@
         <div class="remember-forgot">
             <input type="checkbox" id="remember-me" name="remember-me">
             <label for="remember-me">Remember me</label>
-            <a href="forgot_password.html">Forgot password?</a>
+            <a href="forgot_password.jsp">Forgot password?</a>
         </div>
 
         <button type="submit" class="btn">Login</button>
 
         <div class="register-link">
-            <p>Don't have an account? <a href="register.html">Register</a></p>
+            <p>Don't have an account? <a href="register.jsp">Register</a></p>
         </div>
     </form>
 </div>
@@ -79,7 +80,7 @@
         const adminPassword = prompt("Enter Admin Password:");
 
         if (adminUsername === "oshadha" && adminPassword === "123") {
-            window.location.href = "../Admin/Admin.html";
+            window.location.href = "Admin.jsp";
         } else {
             alert("Invalid Admin Credentials!");
         }
