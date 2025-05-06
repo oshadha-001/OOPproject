@@ -30,5 +30,5 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Registration successful! You can now log in.");
-    window.location.href = "login.html"; // Redirect to login page
+    window.location.href = "register.jsp"; // Redirect to login page
 });
