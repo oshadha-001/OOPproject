@@ -34,7 +34,7 @@
                         <li>Standard: Ceremony + Reception</li>
                         <li>Premium: Full Day + Album</li>
                     </ul>
-                    <button class="book-btn">Book Now</button>
+                    <button class="book-btn" onclick="window.location.href='WenderTable.jsp'">Book Now</button>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                         <li>Outdoor Garden</li>
                         <li>Luxury Banquet</li>
                     </ul>
-                    <button class="book-btn">Book Now</button>
+                    <button class="book-btn" onclick="window.location.href='WenderTable.jsp'">Book Now</button>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                         <li>Plated Service</li>
                         <li>Live Stations</li>
                     </ul>
-                    <button class="book-btn">Book Now</button>
+                    <button class="book-btn" onclick="window.location.href='WenderTable.jsp'">Book Now</button>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
                         <li>Mermaid</li>
                         <li>A-Line</li>
                     </ul>
-                    <button class="book-btn">Book Now</button>
+                    <button class="book-btn" onclick="window.location.href='WenderTable.jsp'">Book Now</button>
                 </div>
             </div>
         </div>
