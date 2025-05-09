@@ -6,16 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/saveDress")
 public class SaveDressServlet extends HttpServlet {
-
-    private static final String FILE_PATH = "dress_data.txt"; // <-- update this path
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,19 +21,18 @@ public class SaveDressServlet extends HttpServlet {
         String price = request.getParameter("price");
         String image = request.getParameter("image");
 
-        if (vendor != null && name != null && price != null && image != null) {
-            try (FileWriter fw = new FileWriter(FILE_PATH, true);
-                 BufferedWriter bw = new BufferedWriter(fw);
-                 PrintWriter out = new PrintWriter(bw)) {
+        // File path can be customized
+        String filePath = getServletContext().getRealPath("/") + "dresses.txt";
 
-                out.println(vendor + "," + name + "," + price + "," + image);
-                response.setStatus(HttpServletResponse.SC_OK);
-            } catch (IOException e) {
-                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                e.printStackTrace();
-            }
-        } else {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
+            writer.println("Vendor: " + vendor);
+            writer.println("Name: " + name);
+            writer.println("Price: " + price);
+            writer.println("Image URL: " + image);
+            writer.println("-----");
         }
+
+        response.setContentType("text/plain");
+        response.getWriter().write("Dress saved.");
     }
 }

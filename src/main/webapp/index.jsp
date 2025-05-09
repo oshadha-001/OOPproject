@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +13,10 @@
 </video>
 
 
-
-
 <!-- Login Form -->
 <div class="wrapper">
     <form onsubmit="return validateUserLogin()">
-        <h1>Login</h1>
+        <h1>Vendor Login</h1>
 
         <div class="input-box">
             <input type="text" name="username" placeholder="Enter Username" required>
@@ -37,10 +34,11 @@
             <a href="forgot_password.jsp">Forgot password?</a>
         </div>
 
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn" onclick="window.location.href='VendorBookingMenu.jsp'">Login</button>
+
 
         <div class="register-link">
-            <p>Don't have an account? <a href="register.jsp">Register</a></p>
+            <p>Don't have an account? <a href="register.jsp">Vendor Register</a></p>
         </div>
     </form>
 </div>

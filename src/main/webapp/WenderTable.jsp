@@ -28,6 +28,19 @@
         </div>
         <button type="submit" class="btn btn-primary">Add Dress</button>
     </form>
+
+    <!-- Table to display added dresses -->
+    <table class="table mt-4" id="dressTable">
+        <thead>
+        <tr>
+            <th>Vendor</th>
+            <th>Dress Name</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 </div>
 
 <script>
@@ -39,6 +52,16 @@
         const price = document.getElementById("dress-price").value.trim();
         const image = document.getElementById("dress-image").value.trim();
 
+        // Append to table
+        const row = `<tr>
+                        <td>${vendor}</td>
+                        <td>${name}</td>
+                        <td>${price}</td>
+                        <td><img src="${image}" width="50" /></td>
+                     </tr>`;
+        document.querySelector("#dressTable tbody").insertAdjacentHTML("beforeend", row);
+
+        // Send to Java servlet
         fetch("saveDress", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
