@@ -24,7 +24,7 @@
         <button type="submit" class="btn">Reset Password</button>
 
         <div class="register-link">
-            <p>Remember your password? <a href="index.jsp">Login</a></p>
+            <p>Remember your password? <a href="VendorSignIn.jsp">Login</a></p>
         </div>
     </form>
 </div>
