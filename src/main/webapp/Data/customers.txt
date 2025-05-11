@@ -3,3 +3,6 @@ Yasith,Dissanayake,yasith070@gmail.com,yasith1234,0776545678,382/1 aniwaththe Ka
 Yasith,Dissanayake,yasith@gmail.com,123456789,0776545678,382/1 aniwaththe Kandy
 lahiru,perera,Lahiru@gmail.com,lahiru1234,0776545678,382/1 aniwaththe Kandy
 Eranda,Dissanayake,Eranda@gmail.com,12345678,0987567893,382/1 aniwaththe Kandy
+Eranda,perera,eranda1234@gmail.com,eranda5678,0705648378,38/5 naththarampotha kandy
+Yasith,Perera,eshan@gmail.com,ehan12345,0742055250,38/5 naththarampotha kandy
+charaka,don,charaka070@gmail.com,charaka1234,0784567341,38/5 naththarampotha kandy
