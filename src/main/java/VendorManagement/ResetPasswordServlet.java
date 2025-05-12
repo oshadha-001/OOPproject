@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResetPasswordServlet extends HttpServlet {
-    private final String filePath = "F:\\OOPproject\\src\\main\\webapp\\Data\\users.txt";
+    private final String filePath = "F:\\OOPproject\\src\\main\\webapp\\Data\\vendor.txt";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
