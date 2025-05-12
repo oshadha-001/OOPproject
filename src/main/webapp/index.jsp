@@ -114,7 +114,7 @@
 
 <!-- 🚀 Button Container -->
 <div class="container">
-    <a href="customerRegistration.jsp">
+    <a href="customerSignIn.jsp">
         <button class="buttonBox">Customer Login</button>
     </a>
     <a href="VendorSignIn.jsp">
