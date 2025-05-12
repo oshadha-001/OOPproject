@@ -88,4 +88,54 @@ public class CustomerCRUD {
         }
         return deleted; // Return whether a customer was deleted
     }
+
+    //--------profile update
+
+    // Update first name
+    public boolean updateCustomer(String email, String newFirstName) throws IOException {
+        if (!CustomerValidator.isValidName(newFirstName)) return false;
+        Customer c = findCustomerByEmail(email);
+        if (c == null) return false;
+        c.setFirstName(newFirstName);
+        return updateCustomer(c);
+    }
+
+    // Update last name
+    public boolean updateCustomer(String email, String newLastName, boolean isLastName) throws IOException {
+        if (!CustomerValidator.isValidName(newLastName)) return false;
+        Customer c = findCustomerByEmail(email);
+        if (c == null) return false;
+        c.setLastName(newLastName);
+        return updateCustomer(c);
+    }
+
+    // Update mobile
+    public boolean updateCustomer(String email, int dummy, String newMobile) throws IOException {
+        if (!CustomerValidator.isValidMobile(newMobile)) return false;
+        Customer c = findCustomerByEmail(email);
+        if (c == null) return false;
+        c.setMobile(newMobile);
+        return updateCustomer(c);
+    }
+
+    // Update password
+    public boolean updateCustomer(String email, String newPassword, int dummy) throws IOException {
+        if (!CustomerValidator.isValidPassword(newPassword)) return false;
+        Customer c = findCustomerByEmail(email);
+        if (c == null) return false;
+        c.setPassword(newPassword);
+        return updateCustomer(c);
+    }
+
+    // Update address
+    public boolean updateCustomer(String email, boolean isAddress, String newAddress) throws IOException {
+        if (!CustomerValidator.isValidAddress(newAddress)) return false;
+        Customer c = findCustomerByEmail(email);
+        if (c == null) return false;
+        c.setAddress(newAddress);
+        return updateCustomer(c);
+    }
+
+
+
 }

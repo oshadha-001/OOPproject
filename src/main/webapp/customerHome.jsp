@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: NewGen
+  User: IT24103931 Dissanayake Y.I
   Date: 5/11/2025
   Time: 10:42 PM
   To change this template use File | Settings | File Templates.
@@ -23,7 +23,7 @@
 <h1>Welcome, <%= customer.getFirstName() %>!</h1>
 <a href="LogoutServlet">Logout</a>
 
-<p><a href="profile.jsp">Customer Registration</a></p>
+<p><a href="profile.jsp">Customer Profile</a></p>
 
 </body>
 </html>
