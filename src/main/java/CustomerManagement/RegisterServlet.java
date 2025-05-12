@@ -26,7 +26,7 @@ public class RegisterServlet extends HttpServlet {
                 !CustomerValidator.isValidMobile(mobile) || !CustomerValidator.isValidAddress(address)) {
 
             // If validation fails, show an error message and forward back to registration page
-            request.setAttribute("errorMessage", "Please fill all fields correctly. Ensure the email format is valid and mobile number is at least 10 digits.");
+            request.setAttribute("errorMessage", "Please fill all fields correctly");
             request.getRequestDispatcher("/customerRegistration.jsp").forward(request, response);
             return;
         }
