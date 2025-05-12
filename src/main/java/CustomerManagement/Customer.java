@@ -13,6 +13,8 @@ public class Customer extends User {
         return address;
     }
 
+    public void setAddress(String address) {this.address = address; }
+
     // Save as comma-separated string
     public String toCSV() {
         return String.join(",", firstName, lastName, email, password, mobile, address);
