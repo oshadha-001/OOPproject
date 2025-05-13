@@ -117,7 +117,7 @@
     <a href="customerSignIn.jsp">
         <button class="buttonBox">Customer Login</button>
     </a>
-    <a href="VendorSignIn.jsp">
+    <a href="VendorSignIn.html">
         <button class="buttonBox">Vendor Login</button>
     </a>
 </div>

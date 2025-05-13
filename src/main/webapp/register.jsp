@@ -42,6 +42,6 @@
         </div>
     </form>
 </div>
-
+<script src="JSP/script.js"></script>
 </body>
 </html>
