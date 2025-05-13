@@ -9,7 +9,7 @@ import java.util.List;
 public class VendorFileHandler {
 
     public static String getFilePath(HttpServletRequest request) {
-        String path = request.getServletContext().getRealPath("F:\\OOPproject\\src\\main\\webapp\\Data\\Vendor.txt");
+        String path = request.getServletContext().getRealPath("F:/OOPproject/src/main/webapp/Data/Vendor.txt");
         File file = new File(path);
         file.getParentFile().mkdirs(); // Ensure parent directories exist
         return path;
