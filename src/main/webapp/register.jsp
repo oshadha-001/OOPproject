@@ -16,7 +16,7 @@
 
 <!-- Registration Form -->
 <div class="wrapper">
-    <form id="registerForm">
+    <form id="registerForm" method="POST" action="register">
         <h1>Vendor Register</h1>
 
         <div class="input-box">
@@ -43,6 +43,5 @@
     </form>
 </div>
 
-<script src="JSP/script.js"></script>
 </body>
 </html>
