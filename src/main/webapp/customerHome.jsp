@@ -24,6 +24,7 @@
 <a href="LogoutServlet">Logout</a>
 
 <p><a href="profile.jsp">Customer profile</a></p>
+<p><a href="ViewCustomer.jsp">view customers</a></p>
 
 </body>
 </html>
