@@ -117,9 +117,11 @@
     <a href="customerSignIn.jsp">
         <button class="buttonBox">Customer Login</button>
     </a>
-    <a href="VendorRegister.jsp">
+    <a href="vendorLogin.jsp">
         <button class="buttonBox">Vendor Login</button>
     </a>
+    <a href="WenderTable.jsp"><button class="buttonBox">Vendor table</button></a>
+    <a href="VendorRegister.jsp"><button class="buttonBox">Vendor register</button></a>
 </div>
 
 <!-- ✨ Star Animation Script -->
