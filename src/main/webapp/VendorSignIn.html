@@ -31,22 +31,22 @@
     <div class="login__access">
         <h1 class="login__title">Log in to your account.</h1>
         <div class="login__area">
-            <div class="login__form">
+            <form class="login__form" onsubmit="handleLogin(); return false;">
                 <div class="login__content grid">
                     <div class="login__box">
-                        <input class="login__input" id="email" placeholder=" " required type="email">
+                        <input class="login__input" id="email" placeholder=" " required type="email" name="email">
                         <label class="login__label" for="email">Email</label>
                         <i class="ri-mail-fill login__icon"></i>
                     </div>
                     <div class="login__box">
-                        <input class="login__input" id="password" placeholder=" " required type="password">
+                        <input class="login__input" id="password" placeholder=" " required type="password" name="password">
                         <label class="login__label" for="password">Password</label>
                         <i class="ri-eye-off-fill login__icon login__password" id="loginPassword"></i>
                     </div>
                 </div>
                 <a class="login__forgot" href="#">Forgot your password?</a>
-                <button class="login__button" onclick="handleLogin()">Login</button>
-            </div>
+                <button class="login__button" type="submit">Login</button>
+            </form>
             <div class="login__social">
                 <p class="login__social-title">Or login with</p>
                 <div class="login__social-links">
@@ -71,33 +71,43 @@
     <div class="login__register">
         <h1 class="login__title">Create new account.</h1>
         <div class="login__area">
-            <div class="login__form">
+            <form class="login__form" onsubmit="handleRegister(); return false;">
                 <div class="login__content grid">
                     <div class="login__group grid">
+
+
                         <div class="login__box">
-                            <input class="login__input" id="names" placeholder=" " required type="text">
+                            <input class="login__input" id="names" placeholder=" " required type="text" name="names">
                             <label class="login__label" for="names">Names</label>
                             <i class="ri-id-card-fill login__icon"></i>
                         </div>
+
+
                         <div class="login__box">
-                            <input class="login__input" id="surnames" placeholder=" " required type="text">
+                            <input class="login__input" id="surnames" placeholder=" " required type="text" name="surnames">
                             <label class="login__label" for="surnames">Surnames</label>
                             <i class="ri-id-card-fill login__icon"></i>
                         </div>
                     </div>
+
+
                     <div class="login__box">
-                        <input class="login__input" id="emailCreate" placeholder=" " required type="email">
+                        <input class="login__input" id="emailCreate" placeholder=" " required type="email" name="emailCreate">
                         <label class="login__label" for="emailCreate">Email</label>
                         <i class="ri-mail-fill login__icon"></i>
                     </div>
+
+
                     <div class="login__box">
-                        <input class="login__input" id="passwordCreate" placeholder=" " required type="password">
+                        <input class="login__input" id="passwordCreate" placeholder=" " required type="password" name="passwordCreate">
                         <label class="login__label" for="passwordCreate">Password</label>
                         <i class="ri-eye-off-fill login__icon login__password" id="loginPasswordCreate"></i>
                     </div>
                 </div>
-                <button class="login__button" onclick="handleRegister()">Create account</button>
-            </div>
+
+
+                <button class="login__button" type="submit">Create account</button>
+            </form>
             <p class="login__switch">
                 Already have an account?
                 <button id="loginButtonAccess">Log In</button>
@@ -105,63 +115,9 @@
         </div>
     </div>
 </div>
-<script src="assets/js/main.js"></script>
-<script>
-    function handleLogin() {
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        if (!email || !password) {
-            alert('Please fill in all fields');
-            return;
-        }
-        fetch('/OOPproject/api/auth/login', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: new URLSearchParams({email, password})
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.message);
-                    window.location.href = '/OOPproject/dashboard.html'; // Adjust as needed
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred during login');
-            });
-    }
 
-    function handleRegister() {
-        const names = document.getElementById('names').value;
-        const surnames = document.getElementById('surnames').value;
-        const email = document.getElementById('emailCreate').value;
-        const password = document.getElementById('passwordCreate').value;
-        if (!names || !surnames || !email || !password) {
-            alert('Please fill in all fields');
-            return;
-        }
-        fetch('/OOPproject/api/auth/register', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: new URLSearchParams({names, surnames, email, password})
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.message);
-                    document.getElementById('loginAccessRegister').classList.remove('active');
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred during registration');
-            });
-    }
-</script>
+<!--=============== JAVASCRIPT ===============-->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/auth.js"></script>
 </body>
 </html>
