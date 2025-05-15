@@ -90,6 +90,8 @@
             strengthMessage.className = "strength strong";
         }
     }
+
+    <button type="button" className="btn btn-secondary" onClick="location.href='vendorLogin.jsp'">Login</button>
 </script>
 </body>
 </html>

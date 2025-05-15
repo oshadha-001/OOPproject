@@ -14,10 +14,10 @@ public class VendorLoginServlet extends HttpServlet {
 
         if (LoginFileHandler.validateVendors(vendorId,password)) {
             request.getSession().setAttribute("vendorId",vendorId);
-            response.sendRedirect("WenderTable.jsp");
+            response.sendRedirect("VenderTable.jsp");
         } else {
             request.setAttribute("error", "Invalid vendor credentials");
-            request.getRequestDispatcher("WenderTable.jsp").forward(request,response);
+            request.getRequestDispatcher("VenderTable.jsp").forward(request,response);
         }
     }
 }
