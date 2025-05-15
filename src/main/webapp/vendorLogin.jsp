@@ -37,6 +37,9 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
+
+    <!-- Register Button -->
+    <button type="button" class="btn btn-secondary" onclick="location.href='VendorRegister.jsp'">Register</button>
   </form>
 </div>
 
