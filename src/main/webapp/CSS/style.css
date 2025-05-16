@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff0f5; /* Soft pink */
+    background-color: #e0abab; /* Soft pink */
     color: #333;
     height: 100vh;
 }
@@ -16,32 +16,44 @@ body, html {
     padding: 40px 20px;
     min-height: 100vh;
     flex-direction: column;
+    background: #ccabab;
 }
 
-/* Logo */
+/* Logo (optional) */
 .logo {
     max-width: 120px;
     margin-bottom: 20px;
 }
 
-/* Registration/Login Box */
+/* Background image via CSS (optional) */
+.logo-background {
+    background-image: url('../pics/313-3137800_wedding-event-logo-design.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 120px auto;
+    padding-top: 160px;
+    background: #ccabab;
+}
+
+/* Form Box Styling */
 .login-box {
-    background-color: #ffffff;
+    background-color: #ffe4ec; /* Light pink */
     padding: 30px 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
+    box-shadow: 0 8px 16px rgb(190, 109, 140);
     max-width: 420px;
     width: 100%;
     text-align: center;
 }
 
-/* Headings */
+
+/* Heading */
 .login-box h2 {
     color: #d63384;
     margin-bottom: 20px;
 }
 
-/* Form styling */
+/* Form Group Styling */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -54,11 +66,12 @@ body, html {
     color: #d63384;
 }
 
+/* Input Fields */
 input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #fdc1c1;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
@@ -70,46 +83,12 @@ input[type="password"]:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
 }
 
-/* Password strength */
-.strength {
-    font-size: 0.8em;
-    margin-top: 4px;
-    margin-left: 2px;
-}
-.weak { color: red; }
-.medium { color: orange; }
-.strong { color: green; }
-
-/* Buttons */
-button.btn {
-    margin-top: 10px;
-    margin-right: 8px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
+/* Error Style for Inputs */
+.input-error {
+    border-color: red;
 }
 
-.btn-primary {
-    background-color: #ff69b4;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #e255a1;
-}
-
-.btn-secondary {
-    background-color: #f8d7da;
-    color: #d63384;
-}
-
-.btn-secondary:hover {
-    background-color: #f1c3c8;
-}
-
-/* Error message */
+/* Error Message */
 .error-message {
     background-color: #ffe0e6;
     color: #c0392b;
@@ -119,18 +98,54 @@ button.btn {
     font-size: 0.95rem;
 }
 
-/* Back link */
-.go-back-btn {
-    text-align: right;
-    margin-top: 20px;
-    text-decoration: none;
+/* General Button Style */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
     font-weight: 600;
-    color: #d63384;
-    max-width: 420px;
-    width: 100%;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.go-back-btn i {
+/* Primary Button (Login) */
+.btn-primary {
+    background-color: #ffe4ec;
+    color: #d63384;
+}
+
+.btn-primary:hover {
+    background-color: #e255a1;
+}
+
+/* Secondary Button (Register) */
+.btn-secondary {
+    background-color: #ffe4ec;
+    color: #d63384;
+}
+
+.btn-secondary:hover {
+    background-color: #f8d7da;
+    color: #b02062;
+}
+
+/* Back to Home Button */
+.btn-back-home {
+    background-color: #d63384;
+    color: #ef99e0;
+    margin-top: 20px;
+}
+
+.btn-back-home:hover {
+    background-color: #b02062;
+    color: #fdc1c1;
+}
+
+.btn i {
     margin-right: 6px;
 }
 

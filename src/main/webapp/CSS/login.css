@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff0f5; /* Soft pink background */
+    background-color: #fff0f5;
     color: #333;
     height: 100vh;
 }
@@ -23,13 +23,13 @@ body, html {
     margin-bottom: 20px;
 }
 
-/* Background image if used from CSS */
+/* Background image */
 .logo-background {
     background-image: url('../pics/313-3137800_wedding-event-logo-design.png');
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 120px auto;
-    padding-top: 160px; /* creates space for image */
+    padding-top: 160px;
 }
 
 /* Login box card */
@@ -37,7 +37,7 @@ body, html {
     background-color: #ffffff;
     padding: 30px 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3); /* Pink shadow */
+    box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
     max-width: 400px;
     width: 100%;
     text-align: center;
@@ -45,7 +45,7 @@ body, html {
 
 /* Headings */
 .login-box h2 {
-    color: #d63384; /* Strong pink */
+    color: #d63384;
     margin-bottom: 20px;
 }
 
@@ -86,24 +86,22 @@ button.btn {
     border-radius: 8px;
     font-weight: 600;
     border: none;
-}
-
-button.btn-primary {
     background-color: #ff69b4;
     color: white;
 }
 
-button.btn-secondary {
-    background-color: #f8d7da;
-    color: #d63384;
-}
-
-button.btn-primary:hover {
+button.btn:hover {
     background-color: #e255a1;
 }
 
+/* Only for 'Back to Home' button */
+button.btn-secondary {
+    background-color: #ff69b4;
+    color: white;
+}
+
 button.btn-secondary:hover {
-    background-color: #f1c3c8;
+    background-color: #e255a1;
 }
 
 /* Error Message */
@@ -122,4 +120,3 @@ button.btn-secondary:hover {
         padding: 20px;
     }
 }
-
