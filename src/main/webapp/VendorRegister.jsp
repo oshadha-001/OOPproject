@@ -5,19 +5,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Vendor Registration</title>
-    <link rel="stylesheet" href="CSS/login.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
-        .strength {
-            font-size: 0.8em;
-            margin-top: 4px;
-            margin-left: 2px;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
         }
+
+        .centered-container {
+            background-color: #ffffff;
+            padding: 60px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-box img.logo {
+            width: 100px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .strength {
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+
         .weak { color: red; }
         .medium { color: orange; }
         .strong { color: green; }
-        .form-group {
-            margin-bottom: 20px;
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ef99e0;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .go-back-btn,
+        .login-btn {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .go-back-btn:hover,
+        .login-btn:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            text-align: center;
         }
     </style>
 </head>
@@ -33,7 +116,7 @@
             if (error != null) {
         %>
         <p class="error-message">
-            <i class="fas fa-exclamation-triangle"></i> <%= error %>
+            <%= error %>
         </p>
         <%
             }
@@ -56,13 +139,12 @@
             <div id="strengthMessage" class="strength"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn">Register</button>
     </form>
-</div>
 
-<a href="index.jsp" class="go-back-btn">
-    <i class="fas fa-arrow-left"></i> Back to Home
-</a>
+    <a href="vendorLogin.jsp" class="login-btn">Already registered? Login</a>
+    <a href="index.jsp" class="go-back-btn">Back to Home</a>
+</div>
 
 <script>
     function checkPasswordStrength() {
@@ -90,8 +172,6 @@
             strengthMessage.className = "strength strong";
         }
     }
-
-    <button type="button" className="btn btn-secondary" onClick="location.href='vendorLogin.jsp'">Login</button>
 </script>
 </body>
 </html>

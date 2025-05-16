@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wedding Vendor Login</title>
   <link rel="stylesheet" href="CSS/login.css" />
+  <link rel="stylesheet" href="CSS/bootstrap.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-<main class="centered-container">
+<main class="centered-container logo-background">
+<%--  <img src="pics/313-3137800_wedding-event-logo-design.png" alt="Wedding Logo" class="logo" />--%>
   <form class="login-box" action="vendorLogin" method="post" autocomplete="off">
-    <img src="pics/313-3137800_wedding-event-logo-design.png" alt="Wedding Logo" class="logo" />
+
     <h2>Vendor Login</h2>
 
     <!-- Display error message if login fails -->
@@ -40,8 +42,12 @@
   </form>
 </main>
 
-<button class="go-back-btn" onclick="location.href='index.jsp'">
-  <i class="fas fa-arrow-left"></i> Back to Home
-</button>
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-secondary">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </button>
+</div>
+
+
 </body>
 </html>
