@@ -13,7 +13,7 @@
 
 <main class="centered-container logo-background">
   <%-- Optional Logo Image --%>
-  <%-- <img src="pics/313-3137800_wedding-event-logo-design.png" alt="Wedding Logo" class="logo" /> --%>
+   <img src="pics/qwe.png" alt="Wedding Logo" class="logo" />
 
   <form class="login-box" action="vendorLogin" method="post" autocomplete="off">
     <h2>Vendor Login</h2>

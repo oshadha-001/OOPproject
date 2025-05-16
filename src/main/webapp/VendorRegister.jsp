@@ -107,7 +107,7 @@
 <body>
 <div class="centered-container">
     <form class="login-box" action="vendor-register" method="post">
-        <img src="pics/313-3137800_wedding-event-logo-design.png" alt="Wedding Logo" class="logo" />
+        <img src="pics/qwe.png" alt="Wedding Logo" class="logo" />
         <h2>Vendor Registration</h2>
 
         <!-- Display error message if registration fails -->
