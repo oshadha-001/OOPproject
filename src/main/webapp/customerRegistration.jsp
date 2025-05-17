@@ -33,11 +33,11 @@
                 <h3 class="text-center mb-4">Create an Account</h3>
 
                 <!-- Display error message if any -->
-                <c:if test="${not empty errorMessage}">
-                    <div class="alert alert-danger">
-                        <strong>Error!</strong> ${errorMessage}
-                    </div>
-                </c:if>
+                <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+                <% if (errorMessage != null) { %>
+                <div class="alert alert-danger" role="alert"><%= errorMessage %></div>
+                <% } %>
+
 
                 <!-- First Name and Last Name input -->
                 <div class="row mb-3">
