@@ -1,9 +1,9 @@
 /* General Reset */
-body, html {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff0f5;
+    background-color: #9f7d7d;
     color: #333;
     height: 100vh;
 }
@@ -74,8 +74,8 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #ff69b4;
-    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+    border-color: #d63384;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.25);
 }
 
 /* Buttons */

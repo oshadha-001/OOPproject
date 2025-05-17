@@ -4,18 +4,25 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Wedding Vendor Registration</title>
+    <title> Wedding Vendor Registration</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #9f7d7d;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+        }
+
+        title {
+            text-align: center;
+            color: #d63384;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
         .centered-container {
@@ -40,6 +47,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            color: #d63384;
         }
 
         label {
