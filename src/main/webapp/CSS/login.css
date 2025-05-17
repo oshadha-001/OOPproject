@@ -34,7 +34,7 @@ body {
 
 /* Login box card */
 .login-box {
-    background-color: #ffffff;
+    background-color: #9f7d7d;
     padding: 30px 25px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
@@ -66,7 +66,7 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #ccc;
+    border:#ccabab;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
@@ -87,7 +87,7 @@ button.btn {
     font-weight: 600;
     border: none;
     background-color: #ff69b4;
-    color: white;
+    color: #9f7d7d;
 }
 
 button.btn:hover {
@@ -97,7 +97,7 @@ button.btn:hover {
 /* Only for 'Back to Home' button */
 button.btn-secondary {
     background-color: #ff69b4;
-    color: white;
+    color: #9f7d7d;
 }
 
 button.btn-secondary:hover {
@@ -106,7 +106,7 @@ button.btn-secondary:hover {
 
 /* Error Message */
 .error-message {
-    background-color: #ffe0e6;
+    background-color: #9f7d7d;
     color: #c0392b;
     padding: 10px;
     border-radius: 8px;

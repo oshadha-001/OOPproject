@@ -2,11 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> Wedding Vendor Registration</title>
 
     <style>
+        h2 {
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 25px;
+        }
         body {
             font-family: Arial, sans-serif;
             background: #9f7d7d;
@@ -20,7 +26,7 @@
 
         title {
             text-align: center;
-            color: #d63384;
+            text-color : #d63384;
             font-size: 2em;
             margin-bottom: 20px;
         }
@@ -29,7 +35,7 @@
             background-color: #ffffff;
             padding: 60px 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
             max-width: 400px;
             width: 100%;
         }
