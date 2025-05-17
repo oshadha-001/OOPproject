@@ -23,8 +23,7 @@
 <h1>Welcome, <%= customer.getFirstName() %>!</h1>
 <a href="LogoutServlet">Logout</a>
 
-<p><a href="profile.jsp">Customer profile</a></p>
-<p><a href="ViewCustomer.jsp">view customers</a></p>
+<p><a href="profile.jsp">Customer Registration</a></p>
 
 </body>
 </html>

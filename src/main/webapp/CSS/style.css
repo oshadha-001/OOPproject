@@ -1,13 +1,157 @@
- .login-card {
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0abab; /* Soft pink */
+    color: #333;
+    height: 100vh;
+}
+
+/* Centered container */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #ccabab;
+}
+
+/* Logo (optional) */
+.logo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+/* Background image via CSS (optional) */
+.logo-background {
+    background-image: url('../pics/313-3137800_wedding-event-logo-design.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 120px auto;
+    padding-top: 160px;
+    background: #ccabab;
+}
+
+/* Form Box Styling */
+.login-box {
+    background-color: #ffe4ec; /* Light pink */
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgb(190, 109, 140);
     max-width: 420px;
     width: 100%;
-  }
-  
-  .form-control:focus {
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-  }
+    text-align: center;
+}
 
- 
-   
 
-  
+/* Heading */
+.login-box h2 {
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #d63384;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #fdc1c1;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+}
+
+/* Error Style for Inputs */
+.input-error {
+    border-color: red;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #ffe0e6;
+    color: #c0392b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* General Button Style */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Primary Button (Login) */
+.btn-primary {
+    background-color: #ffe4ec;
+    color: #d63384;
+}
+
+.btn-primary:hover {
+    background-color: #e255a1;
+}
+
+/* Secondary Button (Register) */
+.btn-secondary {
+    background-color: #ffe4ec;
+    color: #d63384;
+}
+
+.btn-secondary:hover {
+    background-color: #f8d7da;
+    color: #b02062;
+}
+
+/* Back to Home Button */
+.btn-back-home {
+    background-color: #d63384;
+    color: #ef99e0;
+    margin-top: 20px;
+}
+
+.btn-back-home:hover {
+    background-color: #b02062;
+    color: #fdc1c1;
+}
+
+.btn i {
+    margin-right: 6px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+    }
+}

@@ -1,5 +1,6 @@
-document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
+document.getElementById("registerForm").addEventListener("submit", function (event) {
+
+    /*event.preventDefault(); */// Prevent form submission
 
     // Get form values
     let username = document.querySelector("input[name='username']").value;
@@ -24,7 +25,8 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     }
 
     // Add new user to the array
-    users.push({ username, email, password });
+
+    users.push({username, email, password});
 
     // Save updated users array in localStorage
     localStorage.setItem("users", JSON.stringify(users));
