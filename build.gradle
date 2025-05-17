@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'war' // This plugin is for building WAR files
+}
+
+group 'com.vendor.management'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()  // Use Maven Central repository to fetch dependencies
+}
+
+dependencies {
+    // Servlet API (required for servlet-based web apps)
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // For unit testing (optional, but recommended for web applications)
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // If you're using logging libraries, you can add them here (optional)
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
+}
+
+war {
+    archiveFileName = 'your-project-name.war'  // Name of the WAR file to be generated
+    webAppDirName = 'WebContent'  // Directory where your JSPs, HTML, and other static resources are located
+}
+
+tasks.named('test') {
+    useJUnitPlatform()  // For using JUnit 5 in your tests
+}
+
+task buildWar(type: War) {
+    dependsOn 'classes'  // Ensures the project is compiled before packaging into a WAR file
+    from 'src/main/webapp'  // Default source for static resources
+    webAppDirName = 'WebContent'  // This points to the directory where your web resources reside
+}
+

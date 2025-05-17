@@ -1,0 +1,122 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5;
+    color: #333;
+    height: 100vh;
+}
+
+/* Center container */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Logo styles */
+.logo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+/* Background image */
+.logo-background {
+    background-image: url('../pics/313-3137800_wedding-event-logo-design.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 120px auto;
+    padding-top: 160px;
+}
+
+/* Login box card */
+.login-box {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Headings */
+.login-box h2 {
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #d63384;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+}
+
+/* Buttons */
+button.btn {
+    margin-top: 10px;
+    margin-right: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    background-color: #ff69b4;
+    color: white;
+}
+
+button.btn:hover {
+    background-color: #e255a1;
+}
+
+/* Only for 'Back to Home' button */
+button.btn-secondary {
+    background-color: #ff69b4;
+    color: white;
+}
+
+button.btn-secondary:hover {
+    background-color: #e255a1;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #ffe0e6;
+    color: #c0392b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+    }
+}

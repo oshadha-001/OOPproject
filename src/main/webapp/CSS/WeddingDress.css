@@ -65,6 +65,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    color: white;
 }
 
 th, td {
@@ -73,12 +74,12 @@ th, td {
 }
 
 th {
-    background-color: #1e1e1e;
+    background-color: #b2a0a0;
     color: #FFC0CB;
 }
 
 td {
-    background-color: #2a2a2a;
+    background-color: #ceb5b5;
 }
 
 td img {
@@ -87,5 +88,5 @@ td img {
 }
 
 tr:hover {
-    background-color: #3a3a3a;
+    background-color: #ccabab;
 }

@@ -1,5 +1,6 @@
 package VendorBooking;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ public class SaveDressServlet extends HttpServlet {
         String image = request.getParameter("image");
 
         // File path can be customized
-        String filePath = getServletContext().getRealPath("/") + "dresses.txt";
+        String filePath = getServletContext().getRealPath("/") + "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\dresses.txt";
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
             writer.println("Vendor: " + vendor);

@@ -1,7 +1,8 @@
 package CustomerManagement;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerCRUD {
     private final String filePath;
@@ -132,8 +133,9 @@ public class CustomerCRUD {
         if (!CustomerValidator.isValidAddress(newAddress)) return false;
         Customer c = findCustomerByEmail(email);
         if (c == null) return false;
-        c.setAddress(newAddress);
+        //c.setAddress(newAddress);
         return updateCustomer(c);
     }
+
 
 }
