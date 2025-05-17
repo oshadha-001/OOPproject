@@ -13,6 +13,6 @@
 </head>
 <body>
    <p><a href="customerRegistration.jsp">Customer Registration</a></p>
-
+   <p><a href="register.jsp">vendor registration</a></p>
 </body>
 </html>
