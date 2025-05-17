@@ -1,9 +1,9 @@
 /* General Reset */
-body, html {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff0f5;
+    background-color: rgba(200, 137, 232, 0.45);
     color: #333;
     height: 100vh;
 }
@@ -25,7 +25,7 @@ body, html {
 
 /* Background image */
 .logo-background {
-    background-image: url('../pics/313-3137800_wedding-event-logo-design.png');
+    background-image: url('https://via.placeholder.com/120x160?text=Logo');
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 120px auto;
@@ -74,8 +74,8 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #ff69b4;
-    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+    border-color: #d63384;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.25);
 }
 
 /* Buttons */

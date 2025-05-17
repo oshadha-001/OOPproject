@@ -2,20 +2,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding Vendor Registration</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> Wedding Vendor Registration</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #9f7d7d;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+        }
+
+        title {
+            text-align: center;
+            color: #d63384;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
         .centered-container {
@@ -40,6 +47,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            color: #d63384;
         }
 
         label {
@@ -62,9 +70,17 @@
             margin-top: 5px;
         }
 
-        .weak { color: red; }
-        .medium { color: orange; }
-        .strong { color: green; }
+        .weak {
+            color: red;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
 
         .btn {
             width: 100%;
@@ -78,7 +94,7 @@
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #d63384;
         }
 
         .go-back-btn,
@@ -87,7 +103,7 @@
             text-align: center;
             margin-top: 15px;
             text-decoration: none;
-            color: #007bff;
+            color: #d63384;
             font-weight: bold;
         }
 
@@ -107,7 +123,7 @@
 <body>
 <div class="centered-container">
     <form class="login-box" action="vendor-register" method="post">
-        <img src="pics/qwe.png" alt="Wedding Logo" class="logo" />
+        <img src="pics/qwe.png" alt="Wedding Logo" class="logo"/>
         <h2>Vendor Registration</h2>
 
         <!-- Display error message if registration fails -->
@@ -124,18 +140,18 @@
 
         <div class="form-group">
             <label for="vendorName">Vendor Name</label>
-            <input type="text" id="vendorName" name="vendorName" required />
+            <input type="text" id="vendorName" name="vendorName" required/>
         </div>
 
         <div class="form-group">
             <label for="vendorId">Vendor ID</label>
             <input type="text" id="vendorId" name="vendorId" required
-                   pattern="[A-Za-z0-9]{5,}" title="Minimum 5 characters. Letters and numbers only." />
+                   pattern="[A-Za-z0-9]{5,}" title="Minimum 5 characters. Letters and numbers only."/>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required oninput="checkPasswordStrength()" />
+            <input type="password" id="password" name="password" required oninput="checkPasswordStrength()"/>
             <div id="strengthMessage" class="strength"></div>
         </div>
 
