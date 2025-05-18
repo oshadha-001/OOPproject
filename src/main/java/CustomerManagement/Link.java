@@ -1,13 +1,13 @@
 package CustomerManagement;
 
-// Node.java
-public class Node {
+public class Link {
     Customer data;
-    Node next;
+    Link next;
 
-    public Node(Customer data) {
+    public Link(Customer data) {
         this.data = data;
         this.next = null;
     }
 }
+
 
