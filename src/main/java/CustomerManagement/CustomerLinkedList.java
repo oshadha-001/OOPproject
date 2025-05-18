@@ -1,21 +1,20 @@
 package CustomerManagement;
 
-// CustomerLinkedList.java
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerLinkedList {
-    private Node head;
+    private Link head;
 
     public void add(Customer c) {
-        Node newNode = new Node(c);
+        Link newLink = new Link(c);
         if (head == null) {
-            head = newNode;
+            head = newLink;
         } else {
-            Node temp = head;
+            Link temp = head;
             while (temp.next != null)
                 temp = temp.next;
-            temp.next = newNode;
+            temp.next = newLink;
         }
     }
 
@@ -27,8 +26,8 @@ public class CustomerLinkedList {
             return true;
         }
 
-        Node prev = head;
-        Node curr = head.next;
+        Link prev = head;
+        Link curr = head.next;
 
         while (curr != null) {
             if (curr.data.getEmail().equalsIgnoreCase(email)) {
@@ -44,7 +43,7 @@ public class CustomerLinkedList {
 
     public List<Customer> toList() {
         List<Customer> customers = new ArrayList<>();
-        Node temp = head;
+        Link temp = head;
         while (temp != null) {
             customers.add(temp.data);
             temp = temp.next;
