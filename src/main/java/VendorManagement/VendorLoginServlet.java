@@ -46,7 +46,7 @@ public class VendorLoginServlet extends HttpServlet {
     }
 
     private void logLoginAttempt(String vendorId, boolean success, HttpServletRequest request) {
-        // Prepare log directory and filename
+
         String dateStr = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         String logDirPath = getServletContext().getRealPath("/Data");
 
