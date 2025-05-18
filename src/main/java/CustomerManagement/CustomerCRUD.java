@@ -3,6 +3,7 @@ package CustomerManagement;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedList;
 
 public class CustomerCRUD {
     private final String filePath;
@@ -28,7 +29,7 @@ public class CustomerCRUD {
 
     // Get all customers from the file
     public List<Customer> getAllCustomers() throws IOException {
-        List<Customer> customers = new ArrayList<>();
+        List<Customer> customers = new LinkedList<>(); // Use LinkedList
         // Read customers from the file
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;

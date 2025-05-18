@@ -1,4 +1,3 @@
-lahiru,perera,shan@gmail.com,lahiru123,0986785646,382/1 aniwaththe Kandy
 Yasith,Perarasnewj,yasith070@gmail.com,yasith1234456,0776545678,382/1 aniwaththe Kandy
 Yasith,Dissanayake,yasith@gmail.com,123456789,0776545678,382/1 aniwaththe Kandy
 lahiru,perera,Lahiru@gmail.com,lahiru1234,0776545678,382/1 aniwaththe Kandy

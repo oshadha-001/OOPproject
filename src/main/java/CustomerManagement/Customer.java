@@ -24,4 +24,5 @@ public class Customer extends User {
         if (data.length < 6) return null;
         return new Customer(data[0], data[1], data[2], data[3], data[4], data[5]);
     }
+
 }
