@@ -56,7 +56,7 @@
         <i class="fas fa-arrow-left"></i> Logout
     </a>
 </div>
-
+<script src="JSP/login.js"></script>
 
 </body>
 </html>
