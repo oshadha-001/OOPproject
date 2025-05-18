@@ -6,7 +6,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -47,27 +50,28 @@ public class VendorLoginServlet extends HttpServlet {
 
     private void logLoginAttempt(String vendorId, boolean success, HttpServletRequest request) {
 
-        String dateStr = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        String logDirPath = getServletContext().getRealPath("/Data");
+        try {
+            String dateStr = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            String logDirPath = getServletContext().getRealPath("/Data");
 
-        File logDir = new File(logDirPath);
-        if (!logDir.exists()) {
-            logDir.mkdirs();
-        }
+            File logDir = new File(logDirPath);
+            if (!logDir.exists()) {
+                logDir.mkdirs();
+            }
 
-        String fileName = logDirPath + File.separator + dateStr + "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\VendorLOGIN.txt";
+            String fileName = logDirPath + File.separator + "F:\\OOPproject\\src\\main\\webapp\\Data\\VendorLOGIN.txt";
 
-        // Create log entry
-        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String status = success ? "SUCCESS" : "FAILED";
-        String logEntry = String.format("%s - VendorID: %s - Status: %s%n", timestamp, vendorId, status);
+            // Create log entry
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            String status = success ? "SUCCESS" : "FAILED";
+            String logEntry = String.format("%s - VendorID: %s - Status: %s%n", timestamp, vendorId, status);
 
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))) {
+                bw.write(logEntry);
+            }
 
-        try (FileWriter fw = new FileWriter(fileName, true);
-             BufferedWriter bw = new BufferedWriter(fw)) {
-            bw.write(logEntry);
         } catch (IOException e) {
-            e.printStackTrace(); // Optional: log to servlet context
+            e.printStackTrace(); // Optional: log to servlet context or a logger
         }
     }
 }
