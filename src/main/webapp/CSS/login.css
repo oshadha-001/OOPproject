@@ -67,7 +67,7 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px 12px;
-    border:#ccabab;
+    border: #ccabab;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
@@ -88,7 +88,7 @@ button.btn {
     font-weight: 600;
     border: none;
     background-color: #ff69b4;
-    color: #9f7d7d;
+    color: #f40000;
 }
 
 button.btn:hover {
@@ -98,7 +98,7 @@ button.btn:hover {
 /* Only for 'Back to Home' button */
 button.btn-secondary {
     background-color: #ff69b4;
-    color: #9f7d7d;
+    color: #f40000;
 }
 
 button.btn-secondary:hover {
