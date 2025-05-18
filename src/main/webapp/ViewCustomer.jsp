@@ -27,6 +27,13 @@
     <input type="text" class="form-control" placeholder="Search customer by email...">
   </div>
 
+
+  <% if (request.getAttribute("message") != null) { %>
+  <div class="alert alert-success"><%= request.getAttribute("message") %></div>
+  <% } else if (request.getAttribute("error") != null) { %>
+  <div class="alert alert-danger"><%= request.getAttribute("error") %></div>
+  <% } %>
+
   <!-- Customer Table -->
   <table class="table table-bordered table-hover">
     <thead class="table-primary">
