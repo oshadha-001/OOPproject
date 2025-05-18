@@ -35,7 +35,6 @@
       <th>Customer Name</th>
       <th>Email</th>
       <th>Mobile</th>
-      <th>Registered Date</th>
       <th>Address</th>
       <th>Action</th>
     </tr>
