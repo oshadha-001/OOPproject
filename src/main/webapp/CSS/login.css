@@ -6,6 +6,7 @@ body {
     background-color: rgba(200, 137, 232, 0.45);
     color: #333;
     height: 100vh;
+    color: #b2a0a0;
 }
 
 /* Center container */
@@ -34,10 +35,10 @@ body {
 
 /* Login box card */
 .login-box {
-    background-color: #9f7d7d;
+    background-color: rgba(224, 171, 171, 0.87);
     padding: 30px 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(255, 192, 203, 0.3);
+    box-shadow: 0 8px 16px rgb(224, 171, 171);
     max-width: 400px;
     width: 100%;
     text-align: center;
