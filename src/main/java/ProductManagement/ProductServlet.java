@@ -20,7 +20,10 @@ public class ProductServlet extends HttpServlet {
         String image = request.getParameter("image");
 
         ProductManagement.Product product = new ProductManagement.Product(vendor, name, price, image);
-        String path = getServletContext().getRealPath("/") + "product.txt";
+
+        // 👇 This is your hardcoded path
+        String path = "C:\\Users\\SOFT\\Documents\\GitHub\\OOPproject\\src\\main\\webapp\\Data\\products.txt";
+
         ProductService service = new ProductService(path);
 
         boolean success = service.saveProduct(product);
