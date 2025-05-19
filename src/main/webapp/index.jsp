@@ -120,6 +120,9 @@
     <a href="vendorLogin.jsp">
         <button class="buttonBox">Vendor Login</button>
     </a>
+    <a href="Admin.jsp">
+        <button class="buttonBox">VAdmin</button>
+    </a>
 </div>
 
 <!-- ✨ Star Animation Script -->

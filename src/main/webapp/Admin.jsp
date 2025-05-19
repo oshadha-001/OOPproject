@@ -1,44 +1,99 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="AdminManagement.User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Admin Dashboard | WedConnect</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: pink;
         }
 
         header {
-            background-color: #343a40;
+            background-color: #333;
             color: white;
             padding: 20px 0;
         }
 
         header h1 {
             text-align: center;
+            margin: 0;
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px 0;
         }
 
         nav a {
             color: white;
             margin: 0 15px;
+            text-decoration: none;
         }
 
         .dashboard-section {
-            margin: 30px auto;
-            max-width: 90%;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .btn-danger {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #cc0000;
+        }
+
+        .btn-warning {
+            background-color: #ffbb33;
+            color: black;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
         }
 
         footer {
             text-align: center;
             padding: 15px;
             margin-top: 30px;
-            background-color: #343a40;
+            background-color: #333;
             color: white;
         }
     </style>
@@ -48,11 +103,10 @@
 <header>
     <div class="container">
         <h1>Admin Dashboard</h1>
-        <nav class="d-flex justify-content-center">
+        <nav>
             <a href="#users">Users</a>
-            <a href="#orders">Orders</a>
-            <a href="#services">Services</a>
-            <a href="../LoginPage/login.html">Logout</a>
+            <a href="#products">Products</a>
+            <a href="login.html">Logout</a>
         </nav>
     </div>
 </header>
@@ -62,89 +116,93 @@
     <!-- Users Section -->
     <section id="users" class="dashboard-section">
         <h3>Manage Users</h3>
-        <table class="table table-bordered table-striped mt-3">
-            <thead class="table-dark">
+        <table>
+            <thead>
             <tr>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Action</th>
             </tr>
             </thead>
-            <tbody id="userTable"></tbody>
+            <tbody>
+            <%
+                List<User> users = (List<User>) session.getAttribute("users");
+                if (users != null && !users.isEmpty()) {
+                    for (int i = 0; i < users.size(); i++) {
+                        User user = users.get(i);
+                        String username = user.getUsername();
+                        String email = user.getEmail() != null ? user.getEmail() : "-";
+                        String password = user.getPassword();
+            %>
+            <tr>
+                <td><%= username %></td>
+                <td><%= email %></td>
+                <td>
+                    <button class="btn-danger btn-sm" onclick="deleteUser(<%= i %>)">Delete</button>
+                    <button class="btn-warning btn-sm" onclick="editUser(<%= i %>, '<%= username %>', '<%= email %>', '<%= password %>')">Edit</button>
+                </td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="3">No users available.</td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
         </table>
-        <button class="btn btn-primary" onclick="downloadUserDetails()">Download User Details</button>
+        <button class="btn-primary" onclick="downloadUserDetails()">Download User Details</button>
     </section>
 
-    <!-- Orders Section -->
-    <section id="orders" class="dashboard-section">
-        <h3>Manage Orders</h3>
-        <p>Process wedding service orders.</p>
-        <button class="btn btn-outline-primary">View Orders</button>
-        <button class="btn btn-outline-success">Process Orders</button>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="dashboard-section">
-        <h3>Manage Services</h3>
-        <p>Update the list of services available to users.</p>
-        <button class="btn btn-outline-primary">Add Service</button>
-        <button class="btn btn-outline-warning">Edit Service</button>
-        <button class="btn btn-outline-danger">Delete Service</button>
+    <!-- Products Section -->
+    <section id="products" class="dashboard-section">
+        <h3>Manage Products</h3>
+        <p>No products available yet (awaiting dresses.txt).</p>
     </section>
 
 </main>
 
 <footer>
-    <p>&copy; 2025 WedConnect. All rights reserved.</p>
+    <p>© 2025 WedConnect. All rights reserved.</p>
 </footer>
 
 <script>
-    function loadUsers() {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const table = document.getElementById("userTable");
-        table.innerHTML = "";
-
-        users.forEach((user, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-        <td>${user.username}</td>
-        <td>${user.email}</td>
-        <td><button class="btn btn-danger btn-sm" onclick="deleteUser(${index})">Delete</button></td>
-      `;
-            table.appendChild(row);
-        });
+    function deleteUser(index) {
+        if (confirm('Are you sure you want to delete this user?')) {
+            fetch('/deleteUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'index=' + encodeURIComponent(index)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('User deleted successfully.');
+                        window.location.reload();
+                    } else {
+                        alert('Failed to delete user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting user:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        }
     }
 
-    function deleteUser(index) {
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        users.splice(index, 1);
-        localStorage.setItem("users", JSON.stringify(users));
-        loadUsers();
+    function editUser(index, username, email, password) {
+        window.location.href = '/updateUserForm?index=' + index + '&username=' + encodeURIComponent(username) +
+            '&email=' + encodeURIComponent(email || '') + '&password=' + encodeURIComponent(password);
     }
 
     function downloadUserDetails() {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        let content = "Username\tEmail\n";
-        users.forEach(user => {
-            content += `${user.username}\t${user.email}\n`;
-        });
-
-        const blob = new Blob([content], {type: 'text/plain'});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "user_details.txt";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        window.location.href = '/download';
     }
-
-    window.onload = loadUsers;
-
-
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+```
+
