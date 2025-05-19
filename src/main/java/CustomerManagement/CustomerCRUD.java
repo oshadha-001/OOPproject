@@ -3,7 +3,6 @@ package CustomerManagement;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.LinkedList;
 
 public class CustomerCRUD {
     private final String filePath;
@@ -27,9 +26,42 @@ public class CustomerCRUD {
         return true; // Successfully added
     }
 
+    //link lsit crud
+
+    public CustomerLinkedList getAllCustomersAsLinkedList() throws IOException {
+        CustomerLinkedList list = new CustomerLinkedList();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Customer c = Customer.fromCSV(line);
+                list.add(c);
+            }
+        }
+        return list;
+    }
+
+    public boolean deleteCustomerUsingLinkedList(String email) throws IOException {
+        CustomerLinkedList list = getAllCustomersAsLinkedList();
+        boolean deleted = list.deleteByEmail(email);
+
+        if (deleted) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                for (Customer c : list.toList()) {
+                    writer.write(c.toCSV());
+                    writer.newLine();
+                }
+            }
+        }
+
+        return deleted;
+    }
+
+
+    //link list crud
+
     // Get all customers from the file
     public List<Customer> getAllCustomers() throws IOException {
-        List<Customer> customers = new LinkedList<>(); // Use LinkedList
+        List<Customer> customers = new ArrayList<>(); // Use LinkedList
         // Read customers from the file
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
