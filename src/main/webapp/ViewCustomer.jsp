@@ -23,9 +23,9 @@
   <h3 class="mb-4">Customer Details</h3>
 
   <!-- Email Search Input -->
-  <div class="mb-3">
-    <input type="text" class="form-control" placeholder="Search customer by email...">
-  </div>
+<%--  <div class="mb-3">--%>
+<%--    <input type="text" class="form-control" placeholder="Search customer by email...">--%>
+<%--  </div>--%>
 
 
   <% if (request.getAttribute("message") != null) { %>
