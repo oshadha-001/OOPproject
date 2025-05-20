@@ -123,6 +123,9 @@
     <a href="Admin.jsp">
         <button class="buttonBox">VAdmin</button>
     </a>
+    <a href="PaymentForm.jsp">
+        <button class="buttonBox">Payment</button>
+    </a>
 </div>
 
 <!-- ✨ Star Animation Script -->

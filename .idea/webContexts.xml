@@ -4,6 +4,8 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Admin.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/Payment/PaymentForm.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP/Payment" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/Payment/PaymentHistory.jsp" value="file://$PROJECT_DIR$/src/main/webapp/Payment" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/CustomerRegistation-SignIn.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WeddingDress.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WenderTable.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
