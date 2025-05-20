@@ -11,6 +11,7 @@
         .delete-btn:hover { background-color: #c0392b; }
         .submit-btn { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; cursor: pointer; }
         .submit-btn:hover { background-color: #45a049; }
+        a.submit-btn { text-decoration: none; display: inline-block; line-height: 32px; }
     </style>
 </head>
 <body>
@@ -51,7 +52,7 @@
 
 <br>
 <div style="text-align:center;">
-    <a href="paymentForm.jsp">Make Another Payment</a>
+    <a href="PaymentForm.jsp" class="submit-btn">Make Another Payment</a>
 </div>
 </body>
 </html>

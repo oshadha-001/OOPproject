@@ -1,2 +1,3 @@
 krishan,12222.0,Credit Card
 krishan,1.0,Credit Card
+kr,1.0E10,Credit Card
