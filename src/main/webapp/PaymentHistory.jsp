@@ -9,10 +9,20 @@
         th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
         .delete-btn { background-color: #e74c3c; color: white; padding: 5px 10px; border: none; cursor: pointer; }
         .delete-btn:hover { background-color: #c0392b; }
+        .submit-btn { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; cursor: pointer; }
+        .submit-btn:hover { background-color: #45a049; }
     </style>
 </head>
 <body>
 <h2 style="text-align: center;">Payment History</h2>
+
+<div style="text-align: center; margin-bottom: 15px;">
+    <form action="PaymentHistoryServlet" method="get">
+        <input type="hidden" name="sort" value="true">
+        <input type="submit" value="Sort by Amount (High to Low)" class="submit-btn">
+    </form>
+</div>
+
 <table>
     <tr>
         <th>Customer Name</th>
@@ -38,9 +48,10 @@
     </tr>
     <% } %>
 </table>
+
 <br>
 <div style="text-align:center;">
-    <a href="PaymentForm.jsp">Make Another Payment</a>
+    <a href="paymentForm.jsp">Make Another Payment</a>
 </div>
 </body>
 </html>

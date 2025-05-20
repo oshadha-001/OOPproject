@@ -1,1 +1,2 @@
-krishan,10000.0,PayPal
+krishan,12222.0,Credit Card
+krishan,1.0,Credit Card
