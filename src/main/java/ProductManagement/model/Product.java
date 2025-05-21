@@ -1,33 +1,36 @@
 package ProductManagement.model;
 
 public class Product {
-    private String productID;
-    private String productName;
+    private String vendorId;
+    private String productType;
+    private double price;
+    private String model;
 
-    // Default constructor (optional but good practice)
-    public Product() {}
+    public Product(String vendorId, String productType, double price, String model) {
+        this.vendorId = vendorId;
+        this.productType = productType;
+        this.price = price;
+        this.model = model;
+    }
 
-    // Parameterized constructor
     public Product(String productID, String productName) {
-        this.productID = productID;
-        this.productName = productName;
+
     }
 
-    // Getters
-    public String getProductID() {
-        return productID;
+    public String getVendorId() {
+        return vendorId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getProductType() {
+        return productType;
     }
 
-    // Setters (optional if you're not modifying)
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public double getPrice() {
+        return price;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getModel() {
+        return model;
     }
 }
+

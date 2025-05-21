@@ -126,6 +126,9 @@
     <a href="PaymentForm.jsp">
         <button class="buttonBox">Payment</button>
     </a>
+    <a href="addProduct.jsp">
+        <button class="buttonBox">add Product</button>
+    </a>
 </div>
 
 <!-- ✨ Star Animation Script -->
