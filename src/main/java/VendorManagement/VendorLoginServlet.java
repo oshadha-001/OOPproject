@@ -1,77 +1,54 @@
 package VendorManagement;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+@WebServlet("/vendorLogin")
 public class VendorLoginServlet extends HttpServlet {
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String vendorId = request.getParameter("vendorId");
         String password = request.getParameter("password");
 
-        // Validate inputs
-        if (vendorId == null || password == null || vendorId.trim().isEmpty() || password.trim().isEmpty()) {
-            request.setAttribute("error", "Vendor ID and Password must not be empty.");
-            request.getRequestDispatcher("VendorLogin.jsp").forward(request, response);
-            return;
-        }
+        // Path to the text file (adjust as needed)
+        String filePath = getServletContext().getRealPath("/WEB-INF/vendors.txt");
 
-        Vendor vendor = new Vendor();
-        vendor.setVendorId(vendorId);
-        vendor.setPassword(password);
+        boolean isValid = validateCredentials(vendorId, password, filePath);
 
-        VendorService vendorService = new VendorService();
-
-        boolean isSuccess = vendorService.loginVendor(vendor);
-
-        // Log attempt
-        logLoginAttempt(vendorId, isSuccess, request);
-
-        if (isSuccess) {
-            HttpSession session = request.getSession();
-            session.setAttribute("vendorId", vendorId);
-            response.sendRedirect("WendorTable.jsp");
+        if (isValid) {
+            // Successful login: Redirect to a dashboard or home page
+            request.getSession().setAttribute("vendorId", vendorId); // Store vendorId in session
+            response.sendRedirect("dashboard.jsp"); // ReplaceWith your dashboard page
         } else {
+            // Failed login: Set error message and forward back to loginpage
             request.setAttribute("error", "Invalid Vendor ID or Password");
-            request.getRequestDispatcher("VendorLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("vendorLogin.jsp").forward(request, response);
         }
     }
 
-    private void logLoginAttempt(String vendorId, boolean success, HttpServletRequest request) {
-
-        try {
-            String dateStr = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            String logDirPath = getServletContext().getRealPath("/Data");
-
-            File logDir = new File(logDirPath);
-            if (!logDir.exists()) {
-                logDir.mkdirs();
+    private boolean validateCredentials(String vendorId, String password, String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String fileVendorId = parts[0].trim();
+                    String filePassword = parts[1].trim();
+                    if (fileVendorId.equals(vendorId) && filePassword.equals(password)) {
+                        return true; // Credentials match
+                    }
+                }
             }
-
-            String fileName = logDirPath + File.separator + "F:\\OOPproject\\src\\main\\webapp\\Data\\VendorLOGIN.txt";
-
-            // Create log entry
-            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            String status = success ? "SUCCESS" : "FAILED";
-            String logEntry = String.format("%s - VendorID: %s - Status: %s%n", timestamp, vendorId, status);
-
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))) {
-                bw.write(logEntry);
-            }
-
         } catch (IOException e) {
-            e.printStackTrace(); // Optional: log to servlet context or a logger
+            e.printStackTrace(); // Log the error (consider using a proper logging framework)
         }
+        return false; // No match found or error occurred
     }
 }

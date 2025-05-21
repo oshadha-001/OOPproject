@@ -13,6 +13,7 @@
             text-align: center;
             margin-bottom: 25px;
         }
+
         body {
             font-family: Arial, sans-serif;
             background: #9f7d7d;
@@ -26,7 +27,7 @@
 
         title {
             text-align: center;
-            text-color : #d63384;
+            text-color: #d63384;
             font-size: 2em;
             margin-bottom: 20px;
         }

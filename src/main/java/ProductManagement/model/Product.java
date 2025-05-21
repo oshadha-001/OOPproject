@@ -5,7 +5,8 @@ public class Product {
     private String productName;
 
     // Default constructor (optional but good practice)
-    public Product() {}
+    public Product(String vendorId, String productType, double price, String model) {
+    }
 
     // Parameterized constructor
     public Product(String productID, String productName) {
@@ -18,13 +19,13 @@ public class Product {
         return productID;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
     // Setters (optional if you're not modifying)
     public void setProductID(String productID) {
         this.productID = productID;
+    }
+
+    public String getProductName() {
+        return productName;
     }
 
     public void setProductName(String productName) {
