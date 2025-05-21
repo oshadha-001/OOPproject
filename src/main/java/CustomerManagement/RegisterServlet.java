@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.*;
 
+@WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
     private static final String FILE_PATH = "C:\\Users\\NewGen\\Documents\\GitHub\\OOPproject\\src\\main\\webapp\\Data\\customers.txt"; // Update this with the correct path to your customers file

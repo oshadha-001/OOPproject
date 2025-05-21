@@ -5,6 +5,8 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.*;
 
+
+@WebServlet("/SignInServlet")
 public class SignInServlet extends HttpServlet {
 
     private CustomerCRUD crud;
