@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-@WebServlet("/vendorLogin")
+
 public class VendorLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class VendorLoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // Path to the text file (adjust as needed)
-        String filePath = getServletContext().getRealPath("/WEB-INF/vendors.txt");
+        String filePath = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\vendor.txt";
 
         boolean isValid = validateCredentials(vendorId, password, filePath);
 

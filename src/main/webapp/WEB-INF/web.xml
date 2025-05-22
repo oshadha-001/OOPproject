@@ -1,23 +1,9 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          version="3.0">
 
-    <servlet>
-        <servlet-name>AddProductServlet</servlet-name>
-        <servlet-class>ProductManagement.model.AddProductServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddProductServlet</servlet-name>
-        <url-pattern>/addProduct</url-pattern>
-    </servlet-mapping>
 
-    <servlet>
-        <servlet-name>DeleteProductServlet</servlet-name>
-        <servlet-class>ProductManagement.model.DeleteProductServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeleteProductServlet</servlet-name>
-        <url-pattern>/deleteProduct</url-pattern>
-    </servlet-mapping>
+
+
 
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
