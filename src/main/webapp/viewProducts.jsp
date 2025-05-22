@@ -1,13 +1,12 @@
 <%@ page import="java.util.*, ProductManagement.model.Product, ProductManagement.model.CrudFileHandler" %>
-<%@ page import="ProductManagement.model.Product" %>
 <%
     String vendorId = request.getParameter("vendorId");
     if (vendorId == null || vendorId.trim().isEmpty()) {
         out.println("<p style='color:red;'>Vendor ID missing!</p>");
         return;
     }
+    String filePath = "D:\\New folder (3)\\src\\main\\webapp\\Data\\Product.txt";
 
-    String filePath = application.getRealPath("/Data/Product.txt");
     CrudFileHandler crudHandler = new CrudFileHandler(filePath);
     List<Product> products = crudHandler.getProductsByVendor(vendorId);
 %>
@@ -31,6 +30,18 @@
         }
         button:hover {
             background-color: #c9302c;
+        }
+
+        .back-button {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .back-button form button {
+            background-color: #5bc0de;
+        }
+        .back-button form button:hover {
+            background-color: #31b0d5;
         }
     </style>
 </head>
@@ -61,6 +72,13 @@
     </tr>
     <% } %>
 </table>
+
+<div class="back-button">
+    <form action="addProduct.jsp" method="get">
+        <input type="hidden" name="vendorId" value="<%= vendorId %>"/>
+        <button type="submit">Back to Add Product</button>
+    </form>
+</div>
 
 </body>
 </html>

@@ -11,9 +11,10 @@ import java.io.IOException;
 public class DeleteProductServlet extends HttpServlet {
     private CrudFileHandler crudHandler;
 
+
     @Override
     public void init() throws ServletException {
-        String filePath = getServletContext().getRealPath("/Data/Product.txt");
+        String filePath = "D:\\New folder (3)\\src\\main\\webapp\\Data\\Product.txt";
         crudHandler = new CrudFileHandler(filePath);
     }
 

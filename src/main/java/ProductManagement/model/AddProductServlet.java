@@ -14,11 +14,16 @@ import java.io.IOException;
 public class AddProductServlet extends HttpServlet {
     private CrudFileHandler crudHandler;
 
+
     @Override
     public void init() throws ServletException {
-        String filePath = getServletContext().getRealPath("/Data/Product.txt");
+        // Use the absolute path directly
+        String filePath = "D:\\New folder (3)\\src\\main\\webapp\\Data\\Product.txt";
         crudHandler = new CrudFileHandler(filePath);
     }
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
