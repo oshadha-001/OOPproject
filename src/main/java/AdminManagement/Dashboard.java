@@ -13,9 +13,9 @@ import java.util.List;
 
 @WebServlet("/adminDashboard")
 public class Dashboard extends HttpServlet {
-    private static final String CUSTOMERS_FILE = "Data/customers.txt";
-    private static final String VENDORS_FILE = "Data/vendor.txt";
-    private static final String PRODUCTS_FILE = "Data/dresses.txt";
+    private static final String CUSTOMERS_FILE = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\customers.txt";
+    private static final String VENDORS_FILE = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\vendor.txt";
+    private static final String PRODUCTS_FILE = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\dresses.txt";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

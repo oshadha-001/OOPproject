@@ -15,8 +15,8 @@ import java.util.List;
 
 @WebServlet("/updateUser")
 public class UpdateUser extends HttpServlet {
-    private static final String CUSTOMERS_FILE = "Data/customers.txt";
-    private static final String VENDORS_FILE = "Data/vendor.txt";
+    private static final String CUSTOMERS_FILE = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\customers.txt";
+    private static final String VENDORS_FILE = "C:\\Users\\oshad\\Desktop\\test\\OOPproject\\src\\main\\webapp\\Data\\vendor.txt";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
