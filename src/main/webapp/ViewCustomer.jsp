@@ -20,7 +20,12 @@
 
 <body>
 <div class="container mt-5">
-  <h3 class="mb-4">Customer Details</h3>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">Customer Details</h3>
+    <a href="customerHome.jsp" class="btn btn-primary">
+      <i class="bi bi-house-door-fill"></i> Back to Home
+    </a>
+  </div>
 
   <!-- Email Search Input -->
 <%--  <div class="mb-3">--%>
