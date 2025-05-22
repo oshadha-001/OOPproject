@@ -15,7 +15,7 @@
     <%-- Optional Logo Image --%>
     <img src="pics/qwe.png" alt="Wedding Logo" class="logo"/>
 
-    <form class="login-box" action="vendorLogin" method="post" autocomplete="off">
+    <form class="login-box" action="vendor" method="post" autocomplete="off">
         <h2>Vendor Login</h2>
 
         <!-- Display error message if login fails -->
