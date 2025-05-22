@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,21 @@ public class GetUsers extends HttpServlet {
         HttpSession session = req.getSession();
         @SuppressWarnings("unchecked")
         List<User> users = (List<User>) session.getAttribute("users");
-        if (users == null) users = new ArrayList<>();
-        resp.setContentType("application/json");
-        resp.getWriter().write(FileHandler.toJson(users));
+        if (users == null) {
+            users = new ArrayList<>();
+        }
+
+        // Set response content type to plain text
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
+
+        // Write each user's details as a plain text line
+        if (users.isEmpty()) {
+            out.write("No users found.");
+        } else {
+            for (User user : users) {
+                out.println(user.toString()); // Assumes User has a toString method
+            }
+        }
     }
 }
