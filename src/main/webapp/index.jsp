@@ -105,7 +105,7 @@
 
 <!-- 🎥 Wedding-Themed Video Background -->
 <video autoplay muted loop id="background-video">
-    <source src="resources/videos/Newindexvideo.mp4" type="video/mp4">
+    <source src="resources/videos/indexvideo.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 

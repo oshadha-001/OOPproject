@@ -46,16 +46,19 @@
         <!-- Action Buttons -->
         <button type="submit" class="btn btn-primary">Login</button>
         <button type="button" class="btn btn-secondary" onclick="location.href='VendorRegister.jsp'">Register</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='Admin.jsp'">Admin</button>
     </form>
+        <!-- Back to Home Button -->
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.jsp" class="btn btn-danger">
+                <i class="fas fa-arrow-left"></i> Logout
+            </a>
+        </div>
+
 </main>
 
-<!-- Back to Home Button -->
 
-<div class="d-flex justify-content-end" style="max-width: 420px; width: 100%; margin: 0 auto;">
-    <a href="index.jsp" class="btn btn-danger">
-        <i class="fas fa-arrow-left"></i> Logout
-    </a>
-</div>
 <script src="JSP/login.js"></script>
 
 </body>

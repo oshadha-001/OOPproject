@@ -1,7 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="AdminManagement.User" %>
+<%@ page import="VendorManagement.Vendor" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +105,7 @@
         <h1>Admin Dashboard</h1>
         <nav>
             <a href="#users">Users</a>
+            <a href="#vendors">Vendors</a>
             <a href="#products">Products</a>
             <a href="login.html">Logout</a>
         </nav>
@@ -157,6 +158,50 @@
         <button class="btn-primary" onclick="downloadUserDetails()">Download User Details</button>
     </section>
 
+    <!-- Vendors Section -->
+    <section id="vendors" class="dashboard-section">
+        <h3>Manage Vendors</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Vendor ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                List<Vendor> vendors = (List<Vendor>) session.getAttribute("vendors");
+                if (vendors != null && !vendors.isEmpty()) {
+                    for (int i = 0; i < vendors.size(); i++) {
+                        Vendor vendor = vendors.get(i);
+                        String vendorId = vendor.getVendorId();
+                        String name = vendor.getName();
+                        String password = vendor.getPassword();
+            %>
+            <tr>
+                <td><%= vendorId %></td>
+                <td><%= name %></td>
+                <td>
+                    <button class="btn-danger btn-sm" onclick="deleteVendor(<%= i %>)">Delete</button>
+                    <button class="btn-warning btn-sm" onclick="editVendor(<%= i %>, '<%= vendorId %>', '<%= name %>', '<%= password %>')">Edit</button>
+                </td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="3">No vendors available.</td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
+        </table>
+        <button class="btn-primary" onclick="downloadVendorDetails()">Download Vendor Details</button>
+    </section>
+
     <!-- Products Section -->
     <section id="products" class="dashboard-section">
         <h3>Manage Products</h3>
@@ -197,12 +242,41 @@
             '&email=' + encodeURIComponent(email || '') + '&password=' + encodeURIComponent(password);
     }
 
+    function deleteVendor(index) {
+        if (confirm('Are you sure you want to delete this vendor?')) {
+            fetch('/deleteVendor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'index=' + encodeURIComponent(index)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Vendor deleted successfully.');
+                        window.location.reload();
+                    } else {
+                        alert('Failed to delete vendor.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting vendor:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        }
+    }
+
+    function editVendor(index, vendorId, name, password) {
+        window.location.href = '/updateVendorForm?index=' + index + '&vendorId=' + encodeURIComponent(vendorId) +
+            '&name=' + encodeURIComponent(name) + '&password=' + encodeURIComponent(password);
+    }
+
     function downloadUserDetails() {
         window.location.href = '/download';
+    }
+
+    function downloadVendorDetails() {
+        window.location.href = '/downloadVendors';
     }
 </script>
 
 </body>
 </html>
-```
-

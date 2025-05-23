@@ -1,3 +1,0 @@
-ID ,P.W. ,Name
-123456,111,oshadha
-
