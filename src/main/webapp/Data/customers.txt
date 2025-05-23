@@ -1,3 +1,2 @@
-Eranda,Dissanayake,Eranda@gmail.com,12345678,0987567893,382/1 aniwaththe Kandy
-Sahan,Perera,shan1234@gmail.com,shan1234,0742744567,38/5 naththarampotha kandy
-Charaka,Dissanayake,charaka@gmail.com,charaka1234,0776545678,345/1 padiwatte undasale
+CharaSbnewj,Dissanayake,charaka@gmail.com,charaka1234,0776545678,345/1 padiwatte undasale
+shanSnewj,Dissanayake,shan@gmail.com,shan1234,0776545678,345/1 ampitiya Kandy
