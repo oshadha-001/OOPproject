@@ -3,24 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Wedding Vendor Attire Store</title>
-    <link rel="stylesheet" href="CSS/WeddingDress.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
         body {
             background-color: #e0abab;
             color: white;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             font-size: 18px;
         }
 
         header {
             background-color: black;
-            color: white;
             padding: 10px;
         }
 
@@ -38,15 +34,12 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             padding: 20px;
         }
 
-        input[type="text"],
-        input[type="number"],
-        input[type="url"],
-        select {
+        input, select {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
@@ -105,14 +98,20 @@
             margin: 30px;
             background-color: #6c757d;
             color: white;
-            border: none;
             padding: 10px 20px;
             border-radius: 30px;
-            font-size: 16px;
         }
 
-        .go-back-btn:hover {
-            background-color: #5a6268;
+        .filter-sort-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-sort-buttons select {
+            max-width: 200px;
         }
     </style>
 </head>
@@ -131,15 +130,20 @@
         <div class="card-body">
             <h4 class="card-title mb-4">Add New Dress</h4>
             <form id="dressForm">
-                <div class="mb-3">
-                    <input type="text" class="form-control mb-2" id="vendor-name" placeholder="Vendor Name" required>
-                    <input type="text" class="form-control mb-2" id="dress-name" placeholder="Dress Name" required>
-                    <input type="number" class="form-control mb-2" id="dress-price" placeholder="Price" min="0" required>
-                    <input type="url" class="form-control mb-2" id="dress-image" placeholder="Image URL" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Add Dress</button>
+                <input type="text" id="vendor-name" placeholder="Vendor Name" required>
+                <input type="text" id="dress-name" placeholder="Dress Name" required>
+                <input type="number" id="dress-price" placeholder="Price" min="0" required>
+                <input type="url" id="dress-image" placeholder="Image URL" required>
+                <button type="submit">Add Dress</button>
             </form>
         </div>
+    </div>
+
+    <div class="filter-sort-buttons">
+        <button onclick="sortByPrice()">Sort by Price</button>
+        <select id="vendorFilter" onchange="filterByVendor()">
+            <option value="">Filter by Vendor</option>
+        </select>
     </div>
 
     <div class="table-responsive mt-4">
@@ -162,6 +166,66 @@
 </button>
 
 <script>
+    // Linked List Implementation
+    class Node {
+        constructor(dress) {
+            this.data = dress;
+            this.next = null;
+        }
+    }
+
+    class LinkedList {
+        constructor() {
+            this.head = null;
+        }
+
+        append(dress) {
+            const newNode = new Node(dress);
+            if (!this.head) {
+                this.head = newNode;
+                return;
+            }
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+
+        toArray() {
+            const arr = [];
+            let current = this.head;
+            while (current) {
+                arr.push(current.data);
+                current = current.next;
+            }
+            return arr;
+        }
+
+        bubbleSortDescendingByPrice() {
+            if (!this.head || !this.head.next) return;
+
+            let swapped;
+            do {
+                swapped = false;
+                let current = this.head;
+                while (current.next) {
+                    if (parseFloat(current.data.price) < parseFloat(current.next.data.price)) {
+                        // Swap dress data
+                        const temp = current.data;
+                        current.data = current.next.data;
+                        current.next.data = temp;
+                        swapped = true;
+                    }
+                    current = current.next;
+                }
+            } while (swapped);
+        }
+    }
+
+    // Our dresses are now stored in a linked list
+    const dresses = new LinkedList();
+
     document.getElementById("dressForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -170,38 +234,64 @@
         const price = document.getElementById("dress-price").value.trim();
         const image = document.getElementById("dress-image").value.trim();
 
-        const rowTemplate = `<tr>
-                                <td>\${vendor}</td>
-                                <td>\${name}</td>
-                                <td>$\${parseFloat(price).toFixed(2)}</td>
-                                <td><img src="\${image}" width="60" height="60" /></td>
-                             </tr>`;
+        const dress = { vendor, name, price, image };
+        dresses.append(dress);
 
-        const finalRow = eval('`' + rowTemplate + '`');
-        document.querySelector("#dressTable tbody").insertAdjacentHTML("beforeend", finalRow);
+        updateVendorFilter();
+        renderTable(dresses.toArray());
+
+        document.getElementById("dressForm").reset();
 
         fetch("saveDress", {
             method: "POST",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: new URLSearchParams({
-                vendor: vendor,
-                name: name,
-                price: price,
-                image: image
-            })
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(dress)
         }).then(res => {
-            if (res.ok) {
-                alert("Dress saved successfully!");
-                document.getElementById("dressForm").reset();
-            } else {
-                alert("Failed to save dress.");
-            }
-        }).catch(err => {
-            alert("Error: " + err);
-        });
+            if (res.ok) alert("Dress saved successfully!");
+            else alert("Failed to save dress.");
+        }).catch(err => alert("Error: " + err));
     });
+
+    function renderTable(data) {
+        const tableBody = document.querySelector("#dressTable tbody");
+        tableBody.innerHTML = "";
+        data.forEach(dress => {
+            const row = "<tr>" +
+                "<td>" + dress.vendor + "</td>" +
+                "<td>" + dress.name + "</td>" +
+                "<td>$" + parseFloat(dress.price).toFixed(2) + "</td>" +
+                "<td><img src='" + dress.image + "' width='60' height='60' /></td>" +
+                "</tr>";
+            tableBody.insertAdjacentHTML("beforeend", row);
+        });
+    }
+
+    function sortByPrice() {
+        dresses.bubbleSortDescendingByPrice();
+        renderTable(dresses.toArray());
+    }
+
+    function updateVendorFilter() {
+        const filter = document.getElementById("vendorFilter");
+        const arr = dresses.toArray();
+        const vendors = [...new Set(arr.map(d => d.vendor))];
+        filter.innerHTML = "<option value=''>Filter by Vendor</option>";
+        vendors.forEach(v => {
+            const option = document.createElement("option");
+            option.value = v;
+            option.textContent = v;
+            filter.appendChild(option);
+        });
+    }
+
+    function filterByVendor() {
+        const selected = document.getElementById("vendorFilter").value;
+        const arr = dresses.toArray();
+        const filtered = selected ? arr.filter(d => d.vendor === selected) : arr;
+        renderTable(filtered);
+    }
 </script>
-<form action="vendorLogin.jsp" method="post"></form>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
